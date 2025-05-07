@@ -27,3 +27,7 @@ URL "amqp://guest:guest@localhost:5672" yang sama pada program publisher dan sub
 
 Saat menjalankan perintah cargo run pada aplikasi subscriber, aplikasi tersebut akan berada dalam keadaan menunggu untuk menerima data. Kemudian, ketika aplikasi publisher dijalankan, lima data yang sudah disiapkan akan dikirimkan melalui RabbitMQ. Seluruh data tersebut akan diterima sekaligus oleh aplikasi subscriber dan tampil di terminal dalam satu kali proses.
 
+## Monitoring chart based on publisher
+![alt text](img/pub2.jpg)
+
+Lonjakan (spike) pada grafik terjadi setelah saya menjalankan perintah cargo run pada publisher sebanyak 3 kali. Setiap kali publisher dijalankan, ia mengirimkan 5 pesan ke message broker RabbitMQ. Dengan demikian, total pesan yang dikirim mencapai 15. Akibatnya, laju pesan (message rate) meningkat drastis dalam waktu singkat, yang terlihat sebagai spike pada grafik “Message rates” di dashboard RabbitMQ.
